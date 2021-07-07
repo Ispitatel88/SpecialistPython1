@@ -7,4 +7,13 @@
 # коров, корова или коровы
 # Например, 1 корова, 2 коровы, 5 коров, 125 коров.
 
-# TODO: your code here
+number = input("Enter amount of cows: ")
+
+if  (int(number) < 5 or int(number) >= 20) and int(number[-1]) == 1:
+    print(f'На лугу пасётся {number} корова.')
+elif (int(number) < 5 or int(number) >= 20)  and 2<= int(number[-1]) <= 4:
+    print(f'На лугу пасётся {number} коровы.')
+elif (int(number) < 5 or int(number) >= 20) and 5 <= int(number[-1]) <= 9:
+    print(f'На лугу пасётся {number} коров.')
+else:
+    print(f'На лугу пасётся {number} коров.')
