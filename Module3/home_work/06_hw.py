@@ -3,12 +3,12 @@ items = [
     {
         "name": "Кроссовки",
         "brand": "adidas",
-        "price": 3440
+        "price": 13440
     },
     {
         "name": "Кепка",
         "brand": "reebok",
-        "price": 3500
+        "price": 3800
     },
     {
         "name": "Рюкзак",
@@ -18,7 +18,7 @@ items = [
     {
         "name": "Шорты",
         "brand": "puma",
-        "price": 2500
+        "price": 4800
     },
     {
         "name": "Шорты",
@@ -31,15 +31,52 @@ items = [
         "price": 1700
     },
 ]
-# Найдите:
+#1
+brands = []
 print("Товары на складе представлены брэндами: ")
+for i, item in enumerate(items, 1):
+    print(f'{i}. {item["brand"]}',end=", ")
+    brands += [item['brand']]
+print('\n')
 
-# TODO: your code here
-
+#2
+#Вариант 1
 print("На складе больше всего товаров брэнда(ов): ")
+from collections import Counter
+brand_dict = dict(Counter(brands))
 
-# TODO: your code here
+max(brand_dict.values())
+new_dict = {}
+for key, value in brand_dict.items():
+    if value == max(brand_dict.values()):
 
+        new_dict.update({key:value})
+print(new_dict)
+
+#Вариант 2
+print("На складе больше всего товаров брэнда(ов): ")
+puma_amount = 0
+adidas_amount = 0
+reebok_amount = 0
+for item in items:
+    if item['brand'] == 'puma':
+        puma_amount += 1
+    elif item['brand'] == 'adidas':
+        adidas_amount += 1
+    elif item['brand'] == 'reebok':
+        reebok_amount += 1
+print('reebok_amount: ', reebok_amount)
+print('puma_amount: ', puma_amount)
+print('adidas_amount: ', adidas_amount)
+
+#3
 print("На складе самый дорогой товар брэнда(ов): ")
 
-# TODO: your code here
+max_price = {}
+for i in  items:
+    if i['price'] >= items[0]['price']:
+        max_price.update({i['brand']:i['price']})
+list_brands = []
+for key in max_price:
+    list_brands.append(key)
+print(*list_brands, sep=', ')
