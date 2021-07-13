@@ -6,3 +6,14 @@
 # Результат: фруктов на букву “к” больше.
 # Дано: [“ананас”, “яблоко”, “Арбуз”, “киви”, “Клюква”, “банан”, “хурма”]
 # Результат: фруктов на букву “к”и “а” больше.
+
+from collections import Counter
+list_of_fnc = ['ананас', 'кокос', 'Арбуз', 'киви', 'Клюква', 'банан', 'хурма']
+new_list = []
+for i in list_of_fnc:
+    j = i.capitalize()
+    new_list.append(j[0])
+new_dict = Counter(new_list)
+for key, value in new_dict.items():
+    if value == max(new_dict.values()):
+        print(f'Больше всего фруктов на букву "{key}"! Их {value} наименований(ия).')
