@@ -11,5 +11,27 @@
 # преобразовав каждую цену к числу(цены в файле хранятся в виде строк)
 # А затем, работам с привычным списком, выполните задания
 prices = []
+import os
+path = os.path.join('files', 'sold.txt') # автоматически расставляет слэши
+f = open(path, 'r', encoding='UTF-8')
+el  = 0
+for line in f:
+    line = line.rstrip()
 
-# Подсказка: для преобразования строки в список вспомните про метод строки .split()
+    el = line.split(' ')
+    for i in el:
+        if i != '':
+            prices.append(i)
+
+print(prices)
+new = []
+for i in prices:
+    i = float(i)
+    new.append(i)
+print('Общая сумма: ', sum(new))
+print(max(new))
+print(min(new))
+
+new.sort()
+print(new[0])
+print(new[-1])
