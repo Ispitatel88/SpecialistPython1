@@ -11,3 +11,23 @@
 # Возможно пригодится:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+list_of_names_fr = []
+import os
+import collections
+path = os.path.join('files', 'fruits.txt')
+with open(path, 'r', encoding='UTF-8') as f:
+    for line in f:
+        el = line.rstrip()
+        if line != '\n':
+            list_of_names_fr.append(line)
+list_of_names_fr.sort()
+list_char = []
+for i in range(len(list_of_names_fr)):
+    list_char.append(list_of_names_fr[i][0])
+    dict_char = dict(collections.Counter(list_char))
+
+for key in dict_char:
+    for item in range(len(list_of_names_fr)):
+        if key == list_of_names_fr[item][0]:
+            with open(os.path.join('files', f'{key}_fruits.txt'), 'a', encoding='UTF-8') as newfr:
+                newfr.write(list_of_names_fr[item])
