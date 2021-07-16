@@ -4,3 +4,8 @@
 # Уточнение: каждые 7 прошедших дней равны одной полной неделе.
 
 
+def amount_weeks(num_days):
+    amount_weeks = num_days//7
+    return amount_weeks
+print(amount_weeks(10))
+
