@@ -25,3 +25,17 @@
 # 2
 # Выходные данные-2:
 # 0
+def money_del(floor, period):
+    a = (floor - 1)%period
+    
+    amount_period = (floor - 1) // period
+    
+    before = (a)*200
+    after = ((period * amount_period + 1) + period - floor)*100
+    
+    if before > after:
+        return after
+    else:
+        return before
+
+print(money_del(20, 7, 2))
