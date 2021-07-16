@@ -17,3 +17,23 @@
 
 # Дано целое число - номер комнаты
 # Вывести два целых числа — номер этажа и ее порядковый номер слева на этаже.
+# summ = 0
+# print(sum(range(4)))
+#     summ += i
+# print(summ)
+amount_of_rooms = 0
+sector = 0
+num_of_room = 18
+while amount_of_rooms < num_of_room:
+    sector += 1 # номер сектора
+    amount_of_rooms += sector**2
+# print(amount_of_rooms)
+
+num_floor = sum(range(sector+1))
+# print(num_floor)
+
+while num_of_room <= amount_of_rooms-sector:
+    amount_of_rooms -= sector
+    num_floor -= 1
+position = sector - (amount_of_rooms - num_of_room)
+print(f"Номер этажа {num_floor}. {position} слева.")
